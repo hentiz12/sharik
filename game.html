@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Game</title>
+	<style type="text/css">
+		  .lagushka {
+           position: absolute;
+           top: 30px;
+           left: 1000px;
+           width: 100px;
+           height: 100px;
+           transition: 1s;
+           opacity: 0;
+
+        }
+         .box{
+            height: 250px;
+            width: 220px;
+            background-color: gray;
+            margin-top: 20px;
+        }
+
+        .body {
+        	background-image: url(tan.jpg);
+        	background-size: cover;
+        }
+	</style>
+</head>
+<body class="body">
+<div class="box">
+     <h1>Собери максимальное количество очков</h1>
+   <h1 style="color: yellow; margin-top: 0px; margin-bottom: 0px;">Score: <span class="pointer">0</span></h1>
+
+      <h1 class="tm">10</h1>
+
+     
+</div>
+
+
+	<!--лягушки-->
+        <img class="lagushka" src="la.jpg" style="top: 270px; opacity: 1; left: 10px; transition: 1s;">
+        <img class="lagushka" src="la.jpg" style="top: 370px; opacity: 1; left: 10px; transition: 1s">
+        <img class="lagushka" src="la.jpg" style="top: 470px; opacity: 1; left: 10px; transition: 1s">
+        <img class="lagushka" src="la.jpg" style="top: 570px; opacity: 1; left: 10px; transition: 1s">
+        <img class="lagushka" src="la.jpg" style="top: 670px; opacity: 1; left: 10px; transition: 1s">
+        <img class="lagushka" src="la.jpg" style="top: 770px; opacity: 1; left: 10px; transition: 1s">
+        <img class="lagushka" src="la.jpg" style="top: 870px; opacity: 1; left: 10px; transition: 1s">
+       
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	let mydivs = document.querySelectorAll(".box")
+
+    let btn = document.querySelector(".btn")
+
+    let lagushka = document.querySelectorAll(".lagushka")
+
+    let num = 100;
+
+    let score = 0;
+     
+   let point = document.querySelector(".pointer")
+
+    let lag1left = 10;
+    let lag1top = 270;
+    
+    let lag2left = 10;
+    let lag2top = 370;
+   
+    let lag3left = 10;
+    let lag3top = 470;
+   
+    let lag4left = 10;
+    let lag4top = 570;
+   
+    let lag5left = 10;
+    let lag5top = 670;
+   
+    let lag6left = 10;
+    let lag6top = 770;
+
+    let moveL = function() {
+      num = num + 100
+      lag1top = lag1top - 10;
+      lag1left = lag1left + 110;
+
+      lag2top = lag2top - 5;
+      lag2left = lag2left + 200;
+
+      lag3top = lag3top - 10;
+      lag3left = lag3left + 150;
+
+      lag4top = lag4top - 30;
+      lag4left = lag4left + 170;
+
+      lag5top = lag5top - 60;
+      lag5left = lag5left + 190;
+
+      lag6top = lag6top - 80;
+      lag6left = lag6left + 210;
+
+      lagushka[0].style.top = num + "px";
+      lagushka[0].style.left = num + "px";
+      
+      lagushka[1].style.top = lag1top + "px";
+      lagushka[1].style.left = lag1left + "px";
+
+      lagushka[2].style.top = lag2top + "px";
+      lagushka[2].style.left = lag2left + "px";
+
+      lagushka[3].style.top = lag3top + "px";
+      lagushka[3].style.left = lag3left + "px";
+
+      lagushka[4].style.top = lag4top + "px";
+      lagushka[4].style.left = lag4left + "px";
+
+      lagushka[5].style.top = lag5top + "px";
+      lagushka[5].style.left = lag5left + "px";
+
+      lagushka[6].style.top = lag6top + "px";
+      lagushka[6].style.left = lag6left + "px";
+    
+      console.log("сдивн")
+   }
+
+   setTimeout(moveL, 2000);
+
+   setInterval(moveL, 1000);
+
+
+   let time = 10;
+
+   let vivod = document.querySelector(".tm")
+
+   let timer = function() {
+      time = time - 1;
+      vivod.innerHTML = time;
+      if(time<=0) {
+         alert("время закончилось")
+      }
+   }
+   setInterval(timer, 1000)
+
+   for(let i=0; i<7; i=i+1) {
+         lagushka[i].onclick = function() {
+            score = score + 1
+            point.innerHTML = score
+           lagushka[i].style.display = "none"
+        }
+   }
+
+
+
+</script>
+</body>
+</html>
